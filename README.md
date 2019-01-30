@@ -4,7 +4,7 @@
 ### Technikkomponenten: 
 - Arduino Mega
 - Elegoo 2.8 Inch Touch Screen
-- Bluetooth Modul
+- Bluetooth Modul Aukru HC-06 RF Transceiver Serial Modul
 - LEDs und Vibrationsmotor
 
 ### Verbindungen vom Display und Bluetoothmodul zum Arduino 
