@@ -2,8 +2,8 @@
 
 ///// Libaries /////
 #include <SPFD5408_Adafruit_GFX.h>    // Core graphics library
-#include <SPFD5408_Adafruit_TFTLCD.h> // Hardware-specific library
-#include <SD.h>
+#include <SPFD5408_Adafruit_TFTLCD.h> // Library für das LCD-Display
+#include <SD.h> // Libraries für die SD-Karte in dem Dispaly
 #include <SPI.h>
 
 ///// LCD Pins /////
@@ -33,7 +33,7 @@ char junk;
 String inputString="";
 
 ///// Licht und Vibration /////
-const int motorPin = 10;
+const int motorPin = 10; 
 const int ledBlink = 12;
 int brightness = 0;
 int fadeAmount = 5;
