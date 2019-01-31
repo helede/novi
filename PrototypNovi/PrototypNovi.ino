@@ -32,7 +32,7 @@ String screen = "1.bmp";
 String number = "0"; 
 String alternative = ""; 
 boolean choosed = false; 
-int z = 0; 
+int z = 1; 
 char slide[10] = "123456789"; 
 
 
@@ -188,7 +188,7 @@ void destinations () {
             String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; 
             bmpDraw(screen, 0, 0);
             delay(1000);
-            bmpDraw(screen2, 0, 0);
+            bmpDraw(screen2, 0, 0); 
           }
           Serial.println(select); 
           inputString = "";
@@ -252,7 +252,7 @@ void route () {
                 led = 0;
               }   
             }            
-          }  
+           
           if (alternative == "b" && (z == 2 || (select == "hda" && z == 4))) {
             screen = "" + select + "_" + alternative + number + "_1" + ".bmp"; 
             String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; 
@@ -271,6 +271,7 @@ void route () {
           }
           inputString = "";
           z = z + 1;
+  }
 }
 
 #define BUFFPIXEL 60
