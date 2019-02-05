@@ -215,7 +215,7 @@ void route () {
                 led = 1;
                 ledDelay = 20;
               }
-              else if ((select == "hda" || select == "wda" || select == "ffm") && z == 2){
+              else if ((select == "hda" && z ==3)|| ((select == "wda" || select == "ffm") && z == 2)){
                 ranAlternative = millis() % 2 == 1;
                 Serial.println(ranAlternative);
                 if(ranAlternative == 1){
@@ -257,7 +257,7 @@ void route () {
               }   
             }            
            
-          if (alternative == "b" && (z == 2 || (select == "hda" && z == 4))) {
+          if ((alternative == "a" && z == 5) || (alternative == "b" && (z == 2 || (select == "hda" && z == 4)))) {
             screen = "" + select + "_" + alternative + number + "_1" + ".bmp"; 
             String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; 
             bmpDraw(screen, 0, 0);
