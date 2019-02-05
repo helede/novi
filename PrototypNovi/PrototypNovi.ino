@@ -34,6 +34,7 @@ String alternative = "";
 boolean choosed = false; 
 int z = 1; 
 char slide[10] = "123456789"; 
+int ranAlternative;
 
 
 void setup(){
@@ -57,13 +58,12 @@ void setup(){
       return;
     }
   progmemPrintln(PSTR("OK!"));
-
   bmpDraw(screen, 0, 0); 
 }
 
 void loop()
 {
-   if (choosed == false) {
+  if (choosed == false) {
     destinations(); 
   }
   else {
@@ -216,12 +216,16 @@ void route () {
                 ledDelay = 20;
               }
               else if ((select == "hda" || select == "wda" || select == "ffm") && z == 2){
-                int ranAlternative = floor(random(0,2));
+                ranAlternative = millis() % 2 == 1;
+                Serial.println(ranAlternative);
                 if(ranAlternative == 1){
                   side = "m";
                   alternative = "b";
                   led = 3;  
                   ledDelay = 10;          
+                }
+                else if(ranAlternative == 0){
+                   alternative = "a";
                 }
               }
               else if ((select == "hda" && z == 7) || (select == "wda" && z == 8) || (select == "ffm" && z == 5)){

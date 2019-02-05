@@ -13,14 +13,14 @@
 #define LCD_RD A0 // LCD Read
 
 ///// TFT Display Pins  für Arduino Mega /////
-//   D0 connects to digital pin 8  
-//   D1 connects to digital pin 9  
-//   D2 connects to digital pin 2
-//   D3 connects to digital pin 3
-//   D4 connects to digital pin 4
-//   D5 connects to digital pin 5
-//   D6 connects to digital pin 6
-//   D7 connects to digital pin 7
+//   D0 - pin 8  
+//   D1 - pin 9  
+//   D2 - pin 2
+//   D3 - pin 3
+//   D4 - pin 4
+//   D5 - pin 5
+//   D6 - pin 6
+//   D7 - pin 7
 
 #define SD_CS 53 // SD Chip Select Pin
 // BMP-Files für die SD-Karte: 24 bit color BMP files
