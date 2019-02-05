@@ -1,7 +1,7 @@
 ///// DEMO MIT BLUETOOTH OHNE TOUCH - novi /////
 
 ///// Libaries /////
-#include <SPFD5408_Adafruit_GFX.h>    // Core graphics library
+#include <SPFD5408_Adafruit_GFX.h>    // Core Graphik Library
 #include <SPFD5408_Adafruit_TFTLCD.h> // Library für das LCD-Display
 #include <SD.h> // Libraries für die SD-Karte in dem Dispaly
 #include <SPI.h>
@@ -23,9 +23,9 @@
 //   D7 - pin 7
 
 #define SD_CS 53 // SD Chip Select Pin
-// BMP-Files für die SD-Karte: 24 bit color BMP files
+// BMP-Files für die SD-Karte: 24 bit color BMP files; Größe: 320x240
 
-///// TFT Display wiring
+///// TFT Display Initialisierung
 Adafruit_TFTLCD tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, A4);
 
 ///// Eingabe-Variablen zur Bluetooth-Steuerung /////
@@ -37,27 +37,28 @@ const int motorPin = 10;
 const int ledBlink = 12;
 int brightness = 0;
 int fadeAmount = 5;
-int led = 0;
-int ledDelay = 10;
-String side = "m";
-const int buttonU = 22;
-const int buttonD = 23;
-const int buttonY = 24;
-int drawn = 0;
+int led = 0; //Anzahl, wie oft LED blinken soll
+int ledDelay = 10; //Geschwindigkeit vom Blinken
+String side = "m"; //LED-Lage auf dem Prototyp: m = mitte, l = links, r = rechts
+const int buttonU = 22; //Button nach oben
+const int buttonD = 23; //Button nach Unten
+const int buttonY = 24; //Button OK
+int drawn = 0; //Bildstatus = geladen oder noch nicht geladen
 
 
 ///// Variablen /////
 String select = "0"; // ausgewählte Route
-String screen = "1.bmp"; //bmpbezeichnung
+String screen = "1.bmp"; //bmp-Bezeichnung
 String number = "0"; //Nummer des bmps in Routenabfolge
 String alternative = ""; //Alternative a oder b
 boolean choosed = false; //noch keine Route ausgewählt
 int z = 0; // Index des bmp-Arrays
 char slide[10] = "123456789"; //bmp-Nummer Array
+int ranAlternative; //RandomAlternative
 
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(9600); 
   Serial1.begin(9600);  // Serial1 TX1 und RX1 auf dem Mega, damit TX und RX nicht mehr bei jedem Codeupload abgezogen werden müssen
   tft.reset();
   uint16_t identifier = tft.readID();
@@ -75,7 +76,7 @@ void setup(){
 
   tft.begin(identifier);
 
-  ///// SD - Initialisierung /////
+  ///// SD - Initialisierung und Check /////
   progmemPrint(PSTR("Initializing SD card..."));
     if (!SD.begin(SD_CS)) {
       progmemPrintln(PSTR("failed!"));
@@ -90,13 +91,13 @@ void setup(){
 ///// DEMO-LOGIK /////
 void loop()
 {
-   if (choosed == false) {
-    destinations(); //Funktion, zur Anzeige und Auswahl der einzelnen Routen
+   if (choosed == false) { // Wenn noch kein Routenziel ausgewählt wurde; hier noch Steuerung durch User
+    destinations(); //Funktion, zur Anzeige und Auswahl der einzelnen Routen/ Routenauswahl
   }
   else {
     route(); //Funktion zum Ablauf der ausgewählten Route
   }
-if(Serial1.available()){
+if(Serial1.available()){ //Ab hier externe Bluetoothsteuerung
   while(Serial1.available())
     {
       char inChar = (char)Serial1.read(); //liest den Buchstaben-input
@@ -115,61 +116,58 @@ if(Serial1.available()){
     }
 }
 
-///// DEMO-LOGIK /////
-
-
-void ledFade (int i, int fadeDelay, String side) {
+///// DEMO-FUNKTIONEN /////
+void ledFade (int i, int fadeDelay, String side) { //Blinken und Vibration
   Serial.println("blinking");
-  for (int k = 0; k < i; k++) {
-    for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) {
-      if (side == "m") {
+  for (int k = 0; k < i; k++) { //Anzahl der übergebene Blinkanzahl
+    for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) { //LED an Fade
+      if (side == "m") { //mittlere LED
         analogWrite(ledBlink, fadeValue);      
       }
-      else if (side == "r") {
+      else if (side == "r") { //rechte LED
         analogWrite(ledBlink-1, fadeValue);      
       }
-      else if (side == "l") {
+      else if (side == "l") { //linke LED
         analogWrite(ledBlink+1, fadeValue);      
       }
-      analogWrite(motorPin, fadeValue);
+      analogWrite(motorPin, fadeValue); //Vibration
       delay(fadeDelay);
     }
-    for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15) {
-      if (side == "m") {
+    for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15) { //LED aus Fade
+      if (side == "m") { //mittlere LED
         analogWrite(ledBlink, fadeValue);      
       }
-      else if (side == "r") {
+      else if (side == "r") { //rechte LED
         analogWrite(ledBlink-1, fadeValue);      
       }
-      else if (side == "l") {
+      else if (side == "l") { //linke LED
         analogWrite(ledBlink+1, fadeValue);      
       }
-      analogWrite(motorPin, fadeValue);
+      analogWrite(motorPin, fadeValue); //Vibration
       delay(fadeDelay);
     }  
   }
 }
 
-void destinations () {
-        if ((digitalRead(buttonY) == HIGH) || inputString == "y") { 
-          if(select == "0") { 
+void destinations () { //Funktion für den Routenablauf
+  // alle Routen sind in ca. 10 Bilder unterteilt. Diese werden über das bmpArray nach der Reihe aufgerufen und je nach array-Nummer werden die LEDs und die Vibration passend geschaltet
+        if ((digitalRead(buttonY) == HIGH) || inputString == "y") { // OK Button wurde gedrückt
+          if(select == "0") { //Als aller erstes soll der erste Screen gezeigt werden, und hda als selected vorgemerkt
             select = "hda";
             Serial.println(select);
-            Serial.println("up");
             drawn = 0;
           }
-          else {
+          else {  //Beim zweiten OK-Klick wird der erste Screen der selected Route vorgemerkt
             choosed = true; 
-            Serial.println(select);
-            Serial.println(choosed);     
-            ledFade(1, 20, "m");
-            number = "0";
-            alternative = "a";
-            z = 0;
+            ledFade(1, 20, "m"); // 1Mal Blinken, langsam, mittlere LED
+            number = "0"; //bmpNummer = 0
+            alternative = "a"; 
+            z = 0; //Erstes Element im bmp-Array
             drawn = 0;
           }
         }
-        
+
+        // Routen-Menu
         else if(select == "hda"){ 
           if((digitalRead(buttonU) == HIGH) || inputString == "u"){ // up
             select = "ffm";
@@ -202,19 +200,19 @@ void destinations () {
             drawn = 0;
           }   
         }
-        if (drawn == 0) {
+        if (drawn == 0) { // Wenn das bmp noch nicht geladen wurde (soll nur einmal geladen werden)
           if (choosed == false) {
              if (select == "0") {
-              screen = "" + select + ".bmp";
+              screen = "" + select + ".bmp"; //z.B. hda.bmp
             }
             else { 
-            screen = "" + select + "_" + alternative + number + ".bmp";
+            screen = "" + select + "_" + alternative + number + ".bmp"; //z.B. hda_a0.bmp
             bmpDraw(screen, 0, 0);
             }
           }
-          else if (choosed == true){
-            screen = "" + select + "_" + alternative + number + "_1" + ".bmp"; 
-            String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; 
+          else if (choosed == true){ // "Selbstwechselnde" bmp
+            screen = "" + select + "_" + alternative + number + "_1" + ".bmp"; //z.B. hda_a1_1.bmp
+            String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; //z.B. hda_a1_2.bmp
             bmpDraw(screen, 0, 0);
             delay(1000);
             bmpDraw(screen2, 0, 0);
@@ -225,11 +223,12 @@ void destinations () {
         } 
 }
 
-void route () {
-  if (inputString == "n") { //next
-          number = slide[z];
+void route () { //Routenablauf
+  if (inputString == "n") { //next Eingabe über Handy/ Bluetooth
+    //Ab hier werden besondere Verhalten bestimmten bmps zugeordnet und ausgeführt
+          number = slide[z]; //Nummer für bmp-Bezeichnung = aus dem Array an der Stelle z
             if (alternative == "a") { 
-              if ((select == "wda" || select == "ffm") && z == 0) {
+              if ((select == "wda" || select == "ffm") && z == 0) { 
                 side = "l";
                 led = 5;
                 ledDelay = 10;
@@ -244,13 +243,17 @@ void route () {
                 led = 1;
                 ledDelay = 20;
               }
-              else if ((select == "hda" || select == "wda" || select == "ffm") && z == 2){
-                int ranAlternative = floor(random(0,2));
+              else if ((select == "hda" && z ==3)|| ((select == "wda" || select == "ffm") && z == 2)){ // hier wird die Route zufällig in der Alternative geändert
+                ranAlternative = millis() % 2 == 1;
+                Serial.println(ranAlternative);
                 if(ranAlternative == 1){
                   side = "m";
                   alternative = "b";
                   led = 3;  
                   ledDelay = 10;          
+                }
+                else if(ranAlternative == 0){
+                   alternative = "a";
                 }
               }
               else if ((select == "hda" && z == 7) || (select == "wda" && z == 8) || (select == "ffm" && z == 5)){
@@ -282,7 +285,7 @@ void route () {
               }   
             }            
           }  
-          if (alternative == "b" && (z == 2 || (select == "hda" && z == 4))) {
+          if ((alternative == "a" && z == 5) || (alternative == "b" && (z == 2 || (select == "hda" && z == 4)))) {
             screen = "" + select + "_" + alternative + number + "_1" + ".bmp"; 
             String  screen2 = "" + select + "_" + alternative + number + "_2" + ".bmp"; 
             bmpDraw(screen, 0, 0);
