@@ -1,3 +1,5 @@
+Repository: https://github.com/helenelehmann/novi
+
 # Projekt novi - Prototyp 
 ## Aileen Bo Hededam, Ozan Iren, Helene Lehmann, Isabell Ngyuen
 
