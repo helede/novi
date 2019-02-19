@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../kapitel.css">
+
+    <title>novi-prototype</title>
+</head>
+
+<body>
+    <div class="navleft">
+        <div id="menu">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../index.html">
+                            <div id="home">
+                                <h2 class="kapname">Home</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../about/about.html">
+                            <div id="about">
+                                <h2 class="kapname">About</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../research/research.html">
+                            <div id="research">
+                                <h2 class="kapname">Recherche</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../concept/concept.html">
+                            <div id="concept">
+                                <h2 class="kapname">Konzept</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../prototype/prototype.html">
+                            <div id="prototype">
+                                <h2 class="kapname">Prototyp</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../business/business.html">
+                            <div id="business">
+                                <h2 class="kapname">Business</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kapitel">
+                        <a href="../contact/contact.html" class="next">
+                            <div id="contact">
+                                <h2 class="kapname">Kontakt</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="textfield">
+        <div id="topspace"></div>
+        <section class="text1">
+            <div class="textcard">
+                <h1 class="headline">Funktions-Prototyp</h1>
+                <p class="sub-head">Umfang</p>
+                <p class="text-center">
+                    Mit diesem Prototyp sollen nur die Funktionen des Services repräsentiert werden.
+                    Die API-Abfragen mit diesem Prototyp wären in dem Umfang des Endproduktes noch nicht möglich
+                    gewesen. Deshalb haben wir uns dafür entschieden, die Funktionen und den Nutzungsablauf als Demo
+                    darzustellen.
+                </p>
+                <p class="sub-head">Funktionen</p>
+                <p class="text-center">
+                    Im Funktionsprototyp bieten wir drei verschiedene Szenarien, also Routen, die zu
+                    Demonstrationszwecken nur über den Campus verlaufen. Auf jeder Route zeigen wir außerdem eine
+                    Planänderung und wie novi darauf reagiert.
+                    Anfangs kann die Testperson mit Knöpfen zwischen den drei Routen wählen, dann startet automatisch
+                    die Demo. Über einen Screen gibt es Infos zur Navigation. Diese Screens werden von einem
+                    Projektmitglied mit Hilfe eines Smartphones per Bluetooth weitergeschaltet.
+                    Bei einem Screenwechsel, der beispielsweise eine Richtungsänderung anzeigt, gibt der Prototyp
+                    zusätzlich Feedback durch leuchtende LEDs und Vibration.
+                </p>
+                <div id="funktions-prototyp">
+
+                    </div>
+                <p class="sub-head">Technik</p>
+                <p class="text-center">
+                        - Arduino Mega 2560<br>
+                        - Elegoo 2.8 Inch Touch Screen<br>
+                        - Bluetooth Modul Aukru HC-06 RF Transceiver Serial Modul<br>
+                        - drei blaue LEDs<br>
+                        - Vibrationsmotor<br>   
+                </p>
+                <p class="sub-head">Schaltplan</p>
+                <p class="text-center">       
+                    <div class="slidecontainer-proto" style="max-width:48vw; height:35vw">
+                        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:95%">
+                            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    
+                        </div>
+    
+    
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan Bluetooth.jpg" style="width:75%" >
+                            
+                        </div>
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan LCD.jpg" style="width:75%">
+                            
+                        </div>
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan SD.jpg" style="width:75%">
+                            
+                        </div>
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan LEDs und Vibration (1).jpg" style="width:75%">
+                                
+                        </div>
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan Buttons.jpg" style="width:75%">
+                            
+                        </div>
+                        <div class="mySlides">
+                            <img class="Slides" src="../schaltpläne/Schaltplan Gesamt.jpg" style="width:75%">
+                            
+                        </div>
+                        
+
+                    </div>
+                </p>
+                
+            </div>
+            <div class="textcard">
+                    <h1 class="headline">Design-Prototyp</h1>
+                    <p class="sub-head">Umfang</p>
+                    <p class="text-center">
+                            Bei dem Design-Prototypen war uns wichtig, dass er Form, Größe, Griffigkeit und Farben des Produkts so gut wie möglich widerspiegelt. Dabei ist in diesem Prototyp keinerlei Technik verbaut. Der Fokus liegt hier allein auf dem Aussehen des Armbands.
+                            Durch ein eingearbeitetes Gummiband, lässt sich der Prototyp über das Handgelenk streifen, sodass man sich einen Eindruck für den Tragekomfort und die Größe am eigenen Handgelenk verschaffen kann.
+                            Es wurden zwei verschiedene Modelle gebaut, mit einer Breite von 2,5 cm und einer Breite von 2 cm. Diese beiden Größen sollen auch beim Endprodukt zur Auswahl stehen.
+
+                    </p>
+                    <div id="design-prototyp">
+
+                        </div>
+                    <p class="sub-head">Materialien</p>
+                    <p class="text-center">
+                            - Schaumgummiplatten (2mm und 3mm)<br>
+                            - Kraftkleber<br>
+                            - Haushaltsgummiband<br>
+                            - Flüssiggummi Beschichtung<br>
+                            
+                    </p>
+                    <p class="sub-head">Farb- und Formgebung</p>
+                    <p class="text-center">
+                            Der Prototyp wurde komplett in schwarz gehalten, da auch das Endprodukt nur in schwarz und weiß angeboten werden soll. Es sind neutrale Farben, die die Aufmerksamkeit des Betrachters auf Form und Größe richtet.
+Die Abgerundeten Ecken, sowie das Versteckte Gummiband, geben den Anschein eines druchgehenden, integralen Armbandes mit einer simplen, fließenden Form.
+     
+                    </p>
+            </div>
+        </section>
+    </div>
+
+</body>
+<script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+    
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+    
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+    
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+</html>

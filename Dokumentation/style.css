@@ -1,0 +1,504 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#back{
+    width: 200vw;
+    background-image: url(blueCity6.png) ;
+    background-position: left;
+    background-size: cover;
+}
+
+a:link { COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+a:visited { COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+a:active { COLOR: black; TEXT-DECORATION: none }
+a:hover { COLOR: rgb(0, 0, 150); TEXT-DECORATION: none; font-weight: none }
+
+
+#landing-container {
+    
+    background-size: cover;
+
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /*position: absolute;*/
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.novi{
+    background: url(novi_logo.png) no-repeat;
+    background-size: cover;
+    display: block;
+
+    height: 30vh;
+    width: 31vh;
+    margin-bottom: 20px;
+
+}
+.slogan{
+    font-size: 30px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+    
+
+#landing-container .btn-menu{
+
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    
+    margin-top: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+
+    
+}
+.btn-menu:hover{
+    
+    background-color: rgb(0, 0, 150);
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;     
+}
+
+
+#menu-container {
+    
+    width: 100vw;
+    overflow-x: hidden;
+    /*position: absolute;*/
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: width 2s;
+    
+
+}
+
+#menu{
+    height: 100%;
+    margin: 5%;
+   
+}
+.row{
+    text-align: center;
+    margin: 10%;
+}
+.kapitel{
+    font-family: "Poppins", sans-serif;
+    font-weight: 3000;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    align-content: center;
+
+    width: 15vw;
+    height: 15vw;
+    
+    border-radius: 50%;
+    border: 2px solid ;
+    border-width: 0.8vw;
+    
+    margin: 10%;    
+    background: rgb(0, 0, 150);
+    color: white;
+}
+#menu .kapitel:hover{
+    
+    background-color: white; 
+    color: black;
+    text-decoration: none;
+    transition-duration: 1s; 
+    width: 15vw;
+    height: 15vw;
+    
+    border-radius: 50%;
+    border: 2px solid rgb(0, 0, 150);
+    border-width: 0.8vw;
+
+     
+}
+
+
+#about .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+
+    
+
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+    
+
+    color: white;
+    
+}
+#about .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s; 
+    
+}
+#about {
+    background: url(navpic/fußgänger.png) no-repeat;
+    
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 5.5vw;
+    background-position-y: 2vw;
+    background-size: 3vw;
+    
+}
+#about:hover{
+    background: url(navpic/fußgänger-b.png) no-repeat;
+    display: block;
+    
+    
+    
+    background-position: 5.5vw;
+    background-position-y: 2vw;
+    background-size: 3vw;
+}
+
+
+#research .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+
+    
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+
+    color: white;
+    
+}
+#research .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s;
+    
+}
+#research {
+    background: url(navpic/fahrrad.png) no-repeat;
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 4vw;
+    background-position-y: 3vw;
+    background-size: 6vw;
+    
+}
+#research:hover{
+    background: url(navpic/fahrrad-b.png) no-repeat;
+    display: block;
+    background-position: 4vw;
+    background-position-y: 3vw;
+    background-size: 6vw;
+}
+
+
+#concept .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+
+   
+    
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+
+    color: white;
+    
+}
+#concept .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s; 
+    
+}
+#concept {
+    background: url(navpic/bus.png) no-repeat;
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 4vw;
+    background-position-y: 2vw;
+    background-size: 5vw;
+    
+}
+#concept:hover{
+    background: url(navpic/bus-b.png) no-repeat;
+    display: block;
+    background-position: 4vw;
+    background-position-y: 2vw;
+    background-size: 5vw;
+}
+
+
+#prototype .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+
+    
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+
+    color: white;
+    
+}
+#prototype .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s; 
+    
+}
+#prototype {
+    background: url(navpic/sbahn.png) no-repeat;
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 4.5vw;
+    background-position-y: 2vw;
+    background-size: 4.5vw;
+    
+}
+#prototype:hover{
+    background: url(navpic/sbahn-b.png) no-repeat;
+    display: block;
+    background-position: 4.5vw;
+    background-position-y: 2vw;
+    background-size: 4.5vw;
+}
+
+
+#business .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    height: 100%;
+    width: 100%; 
+    text-align: center;
+    align-content: center;
+
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+
+    color: white;
+    
+}
+#business .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s; 
+    
+}
+#business {
+    background: url(navpic/auto.png) no-repeat;
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 4vw;
+    background-position-y: 3vw;
+    background-size: 5vw;
+    
+}
+#business:hover{
+    background: url(navpic/auto-b.png) no-repeat;
+    display: block;
+    
+    
+    background-position: 4vw;
+    background-position-y: 3vw;
+    background-size: 5vw;
+}
+
+
+#contact .kapname{
+    float: left;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.6vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+   
+    text-align: center;
+    align-content: center;
+
+    height: 100%;
+    width: 100%;
+
+    padding-top: 65%;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+
+    color: white;
+    
+}
+#contact .kapname:hover{
+    
+    background-color: rgba(255, 255, 255, 0); 
+    color: rgb(0, 0, 150);
+    text-decoration: none;
+    transition-duration: 1.1s; 
+    
+}
+#contact {
+    background: url(navpic/zug.png) no-repeat;
+    
+    display: block;
+    
+
+    height: 100%;
+    width: 100%;
+    
+    background-position: 4.5vw;
+    background-position-y: 2vw;
+    background-size: 4.5vw;
+    
+}
+#contact:hover{
+    background: url(navpic/zug-b.png) no-repeat;
+    display: block;
+    background-position: 4.5vw;
+    background-position-y: 2vw;
+    background-size: 4.5vw;
+}
+
+.value{
+    background-size: cover;
+
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /*position: absolute;*/
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.slogan-value{
+    float: left;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 2vw;
+    line-height: 3;
+    letter-spacing: 1px;
+    text-align: center;
+    align-content: center;
+    color: white;
+    padding-left: 20vw;
+    padding-right: 20vw
+}
+  
+
+  
