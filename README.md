@@ -1,4 +1,5 @@
 Repository: https://github.com/helede/novi
+Concept-Trailer: https://vimeo.com/314902890
 
 # Projekt novi - Prototyp 
 ## Aileen Bo Hededam, Ozan Iren, Helene Lehmann, Isabell Ngyuen
